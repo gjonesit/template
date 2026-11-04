@@ -1,7 +1,8 @@
-# Jekyll Template
+# Quaderno — tema Jekyll generico
 
-Template Jekyll senza dipendenze (niente plugin, niente CMS, niente build JS).
-Stile "quaderno a quadretti / pop", classi in stile framework.
+Tema Jekyll senza dipendenze (niente plugin, niente CMS, niente build JS), pensato per qualsiasi sito:
+associazione, studio, attività, rivista, progetto. Stile "quaderno a quadretti / pop", classi in stile framework.
+I testi sono in italiano e tutti modificabili dai file dati.
 
 ## Avvio
     bundle install
@@ -10,12 +11,20 @@ Stile "quaderno a quadretti / pop", classi in stile framework.
 ## Dove si modifica
 | Cosa | File |
 |---|---|
-| Nome, hero, tiles, carousel, citazione, footer | `_data/site.yml` |
+| Nome, hero, tiles, carousel, citazione, footer, testi dell'interfaccia | `_data/site.yml` |
 | Voci del menu | `_data/navigation.yml` |
-| Titolo, lingua, endpoint form | `_config.yml` |
-| Articoli | `_posts/AAAA-MM-GG-titolo.md` (`category:` per i filtri) |
-| Progetti | `_projects/nome.md` (`area:`, `color:`, `description:`, `image:`, `link:`) |
+| Titolo, descrizione, lingua, endpoint form | `_config.yml` |
+| Articoli | `_posts/AAAA-MM-GG-titolo.md` (`category:` → i filtri del blog si creano da soli) |
+| Progetti | `_projects/nome.md` (`area:`, `color:`, `description:`, `image:`, `link:` → filtri automatici) |
+| Pagine | `about.html`, `contact.html`, `privacy.html`, `cookie.html` |
 | Colori e font | variabili `:root` in `assets/css/main.css` |
+
+## Personalizzare in 5 minuti
+1. `_config.yml`: `title`, `description`, `form_action`.
+2. `_data/site.yml`: `brand`, `hero`, `intro`, `tiles`, `feature`, `carousel`, `quote`, `marquee`, `footer`.
+3. Sostituisci gli esempi in `_posts/` e `_projects/`; completa `privacy.html` e `cookie.html`.
+4. Facoltativo: `hero.image` (es. `/assets/img/foto.jpg`) mostra la polaroid accanto al titolo.
+5. Se rinomini `/progetti/` o `/blog/`, aggiorna `permalink` nelle pagine, `_config.yml` (collection) e `_data/navigation.yml`.
 
 ## Classi (mini-guida)
 - **Layout**: `.container`, `.container-narrow`, `.grid`, `.section`, `.section-head`
@@ -37,8 +46,8 @@ Stile "quaderno a quadretti / pop", classi in stile framework.
 ## Comportamenti JS (attributi `data-*`)
 `data-toggle="offcanvas" data-target="id"`, `data-dismiss="offcanvas"`, `data-carousel` (+ `-prev`, `-next`, `-progress`),
 `data-scrub` (citazione), `data-count` (contatori), `data-tilt`, `data-parallax`,
-`data-filter-group` / `data-filter` / `data-filter-items` + `data-category`, `data-search-input` / `data-search-results`.
+`data-filter-group` / `data-filter` / `data-filter-items` + `data-category`, `data-search-input` / `data-search-results`,
+`data-search-labels` (etichette dei risultati, da `labels.search_types`).
 
-## Pagine di esempio
-Home, Blog, Progetti, Contatti, 404. Per aggiungere una pagina: crea `nome.html` con `layout: page`, `title`, `lead`
-e aggiungila a `_data/navigation.yml`.
+## Aggiungere una pagina
+Crea `nome.html` con `layout: page`, `title`, `lead`, `permalink` e aggiungila a `_data/navigation.yml`.

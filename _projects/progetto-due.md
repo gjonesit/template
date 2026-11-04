@@ -1,6 +1,6 @@
 ---
 title: Progetto due
-area: Grafica
+area: Categoria B
 color: green
 description: Breve descrizione del secondo progetto.
 link: ""

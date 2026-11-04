@@ -4,11 +4,11 @@ layout: default
 <article>
   <header class="page-header">
     <div class="container container-narrow">
-      <p class="eyebrow"><span class="badge badge-active">{{ page.category | default: 'Articolo' }}</span> {{ page.date | date: "%d/%m/%Y" }}</p>
+      <p class="eyebrow"><span class="badge badge-active">{{ page.category }}</span> {{ page.date | date: "%d/%m/%Y" }}</p>
       <h1 class="heading-xl anim-reveal">{{ page.title }}</h1>
       {% if page.summary %}<p class="lead anim-reveal">{{ page.summary }}</p>{% endif %}
     </div>
   </header>
   <div class="container container-narrow prose anim-reveal">{{ content }}</div>
-  <div class="container container-narrow"><a class="btn btn-primary" href="{{ '/blog/' | relative_url }}">← Tutti gli articoli</a></div>
+  <div class="container container-narrow"><a class="btn btn-primary" href="{{ '/blog/' | relative_url }}">{{ site.data.site.labels.back_posts }}</a></div>
 </article>

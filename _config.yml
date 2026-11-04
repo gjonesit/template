@@ -1,8 +1,8 @@
 title: Nome Sito
-description: Una breve descrizione del sito.
+description: Una breve descrizione del sito, utile per i motori di ricerca.
 lang: it
-url: "https://gjonesit.github.io"
-baseurl: "/template/"
+url: ""
+baseurl: ""
 timezone: Europe/Rome
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title/
@@ -17,8 +17,8 @@ collections:
 
 defaults:
   - scope: { path: "", type: "posts" }
-    values: { layout: post }
+    values: { layout: post, category: Novità }
   - scope: { path: "", type: "projects" }
-    values: { layout: project }
+    values: { layout: project, area: Generale, color: pink }
 
 exclude: [Gemfile, Gemfile.lock, README.md, node_modules, vendor]

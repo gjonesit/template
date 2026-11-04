@@ -12,7 +12,7 @@ layout: default
   <div class="container container-narrow">
     {% if page.image %}<img class="img-cover anim-reveal" src="{{ page.image | relative_url }}" alt="{{ page.title }}">{% endif %}
     <div class="prose anim-reveal">{{ content }}</div>
-    {% if page.link and page.link != "" %}<a class="btn btn-secondary" href="{{ page.link }}" target="_blank" rel="noopener">Vai al progetto</a>{% endif %}
-    <a class="btn btn-primary" href="{{ '/progetti/' | relative_url }}">← Progetti</a>
+    {% if page.link and page.link != "" %}<a class="btn btn-secondary" href="{{ page.link }}" target="_blank" rel="noopener">{{ site.data.site.labels.project_cta }}</a>{% endif %}
+    <a class="btn btn-primary" href="{{ '/progetti/' | relative_url }}">{{ site.data.site.labels.back_projects }}</a>
   </div>
 </article>

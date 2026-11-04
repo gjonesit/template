@@ -1,6 +1,6 @@
 ---
 title: Progetto tre
-area: Formazione
+area: Categoria C
 color: blue
 description: Breve descrizione del terzo progetto.
 link: ""

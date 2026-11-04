@@ -1,6 +1,6 @@
 ---
 title: Progetto uno
-area: Sviluppo
+area: Categoria A
 color: pink
 description: Breve descrizione del primo progetto.
 link: ""

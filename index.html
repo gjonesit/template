@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 {% assign s = site.data.site %}
-<section class="hero hero-notes{% if s.hero.photo != blank %} has-photo{% endif %}">
+<section class="hero hero-notes{% if s.hero.image != blank %} has-photo{% endif %}">
   <div class="container hero-inner">
     <div class="hero-body">
       <p class="hero-eyebrow anim-pop">{{ s.hero.eyebrow }}</p>
@@ -14,10 +14,10 @@ title: Home
         <a class="btn btn-secondary" href="{{ s.hero.secondary.url | relative_url }}">{{ s.hero.secondary.label }}</a>
       </div>
     </div>
-    {% if s.hero.photo != blank %}
+    {% if s.hero.image != blank %}
     <figure class="polaroid anim-pop">
-      <img src="{{ s.hero.photo | relative_url }}" alt="{{ s.hero.title }}">
-      {% if s.hero.photo_caption != blank %}<figcaption>{{ s.hero.photo_caption }}</figcaption>{% endif %}
+      <img src="{{ s.hero.image | relative_url }}" alt="{{ s.hero.image_alt | default: s.hero.title }}">
+      {% if s.hero.image_caption != blank %}<figcaption>{{ s.hero.image_caption }}</figcaption>{% endif %}
     </figure>
     {% endif %}
     {% for n in s.hero.notes limit:2 %}
@@ -87,14 +87,14 @@ title: Home
 
 <section class="container section">
   <div class="section-head">
-    <h2 class="heading-xl anim-reveal">Ultimi articoli</h2>
-    <a class="btn btn-primary" href="{{ '/blog/' | relative_url }}">Tutti gli articoli</a>
+    <h2 class="heading-xl anim-reveal">{{ s.labels.latest_title }}</h2>
+    <a class="btn btn-primary" href="{{ '/blog/' | relative_url }}">{{ s.labels.latest_all }}</a>
   </div>
   <ul class="list">
     {% for p in site.posts limit:5 %}
       <li class="anim-reveal"><a class="list-item" href="{{ p.url | relative_url }}">
         <time>{{ p.date | date: "%d/%m/%Y" }}</time>
-        <span class="list-title">{{ p.title }}{% if p.category %} <em>· {{ p.category }}</em>{% endif %}</span>
+        <span class="list-title">{{ p.title }}<em>· {{ p.category }}</em></span>
         <span class="list-arrow">→</span>
       </a></li>
     {% endfor %}

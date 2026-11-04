@@ -1,10 +1,10 @@
 ---
 title: Primo articolo
 date: 2026-01-01 10:00:00 +0100
-category: Personale
+category: Novità
 summary: Un articolo di esempio: modificalo o cancellalo.
 ---
-Benvenuto! Questo è un **articolo di esempio**. Scrivi in Markdown.
+Benvenuti! Questo è un **articolo di esempio**. Si scrive in Markdown.
 
 ## Un sottotitolo
 

@@ -29,8 +29,8 @@
 
 <div class="offcanvas offcanvas-search" id="search" aria-hidden="true">
   <button class="offcanvas-close" type="button" data-dismiss="offcanvas" aria-label="Chiudi">✕</button>
-  <div class="search">
-    <input class="search-input" type="search" placeholder="Cerca articoli e progetti…" autocomplete="off" data-search-input>
+  <div class="search" data-search-labels="{{ site.data.site.labels.search_types | jsonify | escape }}">
+    <input class="search-input" type="search" placeholder="{{ site.data.site.labels.search_placeholder | escape }}" autocomplete="off" data-search-input>
     <ul class="search-results" data-search-results></ul>
   </div>
 </div>

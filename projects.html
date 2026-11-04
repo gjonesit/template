@@ -2,18 +2,18 @@
 layout: page
 permalink: /progetti/
 title: Progetti
-lead: Una selezione di lavori.
+lead: Una selezione di attività e lavori.
 ---
+{% assign areas = site.projects | map: "area" | uniq | sort %}
+{% if areas.size > 1 %}
 <div class="filters" data-filter-group>
   <button class="badge badge-active" data-filter="all">Tutti</button>
-  <button class="badge" data-filter="sviluppo">Sviluppo</button>
-  <button class="badge" data-filter="grafica">Grafica</button>
-  <button class="badge" data-filter="formazione">Formazione</button>
+  {% for a in areas %}<button class="badge" data-filter="{{ a | slugify: 'latin' }}">{{ a }}</button>{% endfor %}
 </div>
+{% endif %}
 <div class="grid" data-filter-items>
   {% for p in site.projects %}
-    {% assign slug = p.area | slugify %}
-    <a class="card card-outline anim-reveal anim-tilt bg-{{ p.color | default: 'pink' }}" data-tilt data-category="{{ slug }}" href="{{ p.url | relative_url }}">
+    <a class="card card-outline anim-reveal anim-tilt bg-{{ p.color }}" data-tilt data-category="{{ p.area | slugify: 'latin' }}" href="{{ p.url | relative_url }}">
       {% if p.image %}<img src="{{ p.image | relative_url }}" alt="" loading="lazy">{% endif %}
       <span class="badge badge-active">{{ p.area }}</span>
       <h3>{{ p.title }}</h3>

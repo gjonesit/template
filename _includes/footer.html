@@ -13,6 +13,6 @@
     </div>
     {% endfor %}
   </div>
-  <div class="container footer-copy">© {{ 'now' | date: '%Y' }} {{ site.data.site.brand }} · Tutti i diritti riservati</div>
+  <div class="container footer-copy">© {{ 'now' | date: '%Y' }} {{ site.data.site.brand }} · {{ f.rights | default: 'Tutti i diritti riservati' }}</div>
 </footer>
 <button class="back-to-top" type="button" aria-label="Torna su" data-back-to-top>↑</button>

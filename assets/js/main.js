@@ -1,4 +1,4 @@
-/* Jekyll Template — comportamenti via attributi data-* (nessuna dipendenza) */
+/* Quaderno — comportamenti via attributi data-* (nessuna dipendenza) */
 (function () {
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
@@ -59,7 +59,8 @@
   });
 
   /* ---- ricerca live (legge /search.json) ---- */
-  var index = null, labels = { posts: 'Blog', projects: 'Progetti' };
+  var index = null, labels = {}, box = $('[data-search-labels]');
+  try { labels = JSON.parse((box && box.getAttribute('data-search-labels')) || '{}'); } catch (err) {}
   function loadIndex() {
     if (index) return;
     fetch(base + 'search.json').then(function (r) { return r.json(); }).then(function (d) { index = d; });
