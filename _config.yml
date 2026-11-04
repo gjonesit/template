@@ -1,8 +1,8 @@
 title: Nome Sito
 description: Una breve descrizione del sito.
 lang: it
-url: ""
-baseurl: ""
+url: "https://gjonesit.github.io"
+baseurl: "/template/"
 timezone: Europe/Rome
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title/
