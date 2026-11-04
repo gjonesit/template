@@ -1,0 +1,102 @@
+---
+layout: default
+title: Home
+---
+{% assign s = site.data.site %}
+<section class="hero hero-notes{% if s.hero.photo != blank %} has-photo{% endif %}">
+  <div class="container hero-inner">
+    <div class="hero-body">
+      <p class="hero-eyebrow anim-pop">{{ s.hero.eyebrow }}</p>
+      <h1 class="hero-title" data-parallax><span>{{ s.hero.title }}</span><svg class="scribble" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4 15 C 70 2, 120 22, 190 10 S 300 3, 396 13"/></svg></h1>
+      <p class="hero-subtitle anim-reveal">{{ s.hero.subtitle }}</p>
+      <div class="hero-actions anim-reveal">
+        <a class="btn btn-primary" href="{{ s.hero.primary.url | relative_url }}">{{ s.hero.primary.label }}</a>
+        <a class="btn btn-secondary" href="{{ s.hero.secondary.url | relative_url }}">{{ s.hero.secondary.label }}</a>
+      </div>
+    </div>
+    {% if s.hero.photo != blank %}
+    <figure class="polaroid anim-pop">
+      <img src="{{ s.hero.photo | relative_url }}" alt="{{ s.hero.title }}">
+      {% if s.hero.photo_caption != blank %}<figcaption>{{ s.hero.photo_caption }}</figcaption>{% endif %}
+    </figure>
+    {% endif %}
+    {% for n in s.hero.notes limit:2 %}
+      <aside class="note note-{{ forloop.index }}" aria-hidden="true">{{ n }}</aside>
+    {% endfor %}
+    <span class="doodle doodle-star" aria-hidden="true">✺</span>
+    <svg class="doodle doodle-arrow" viewBox="0 0 120 80" aria-hidden="true"><path d="M6 10 C 40 0, 90 20, 100 62 M100 62 l-14 -14 M100 62 l 16 -10"/></svg>
+  </div>
+</section>
+
+<div class="divider divider-checker" aria-hidden="true"></div>
+<section class="section-wave bg-lime">
+  <svg class="waves" viewBox="0 0 1350 400" preserveAspectRatio="none" aria-hidden="true">
+    <path class="wave wave-blue" d="M0 330 C 150 330, 200 100, 380 120 S 700 360, 850 230 S 1150 60, 1350 250"/>
+    <path class="wave wave-red"  d="M0 300 C 150 300, 200 70, 380 90 S 700 330, 850 200 S 1150 30, 1350 220"/>
+  </svg>
+  <div class="bubble anim-float"><p>{{ s.intro }}</p></div>
+</section>
+
+<section class="tiles">
+  {% for t in s.tiles %}
+    <a class="tile bg-{{ t.color }}" href="{{ t.url | relative_url }}"><span>{{ t.title }}</span></a>
+  {% endfor %}
+</section>
+
+<section class="container feature">
+  <a class="feature-media anim-tilt" data-tilt href="{{ s.feature.url | relative_url }}"><span>{{ s.feature.label }}</span></a>
+  <div class="feature-body">
+    <h2 class="heading-xl anim-reveal">{{ s.feature.title }}</h2>
+    <p class="anim-reveal">{{ s.feature.text }}</p>
+    <div class="stats">
+      {% for st in s.feature.stats %}
+        <div class="stat anim-reveal" style="--d:{{ forloop.index0 }}"><strong data-count="{{ st.value }}">{{ st.value }}</strong><span>{{ st.label }}</span></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section bg-mint">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="heading-xl anim-reveal">{{ s.carousel.title }}</h2>
+      <div class="carousel-controls"><button type="button" data-carousel-prev aria-label="Indietro">←</button><button type="button" data-carousel-next aria-label="Avanti">→</button></div>
+    </div>
+    <div class="carousel" data-carousel>
+      {% for c in s.carousel.items %}
+        <a class="card card-tall bg-{{ c.color }}{% if c.dark %} text-dark{% else %} text-light{% endif %}" href="{{ c.url | relative_url }}">
+          <span class="card-icon">{{ c.icon }}</span>
+          <span class="card-title">{{ c.title }}</span>
+          <span class="card-link">{{ c.link }}</span>
+        </a>
+      {% endfor %}
+    </div>
+    <div class="progress"><i data-carousel-progress></i></div>
+  </div>
+</section>
+
+<section class="section section-quote bg-mint">
+  <p class="quote" data-scrub>{{ s.quote }}</p>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    {% for i in (1..4) %}{% for t in s.marquee %}<span>{{ t }}</span><b>✺</b>{% endfor %}{% endfor %}
+  </div>
+</div>
+
+<section class="container section">
+  <div class="section-head">
+    <h2 class="heading-xl anim-reveal">Ultimi articoli</h2>
+    <a class="btn btn-primary" href="{{ '/blog/' | relative_url }}">Tutti gli articoli</a>
+  </div>
+  <ul class="list">
+    {% for p in site.posts limit:5 %}
+      <li class="anim-reveal"><a class="list-item" href="{{ p.url | relative_url }}">
+        <time>{{ p.date | date: "%d/%m/%Y" }}</time>
+        <span class="list-title">{{ p.title }}{% if p.category %} <em>· {{ p.category }}</em>{% endif %}</span>
+        <span class="list-arrow">→</span>
+      </a></li>
+    {% endfor %}
+  </ul>
+</section>

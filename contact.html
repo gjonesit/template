@@ -1,0 +1,13 @@
+---
+layout: page
+permalink: /contatti/
+title: Contatti
+lead: Scrivimi, rispondo volentieri.
+---
+<form class="form anim-reveal" method="POST" action="{{ site.form_action }}">
+  <p class="alert alert-success" hidden>Messaggio inviato, grazie! ✔</p>
+  <label class="form-group">Nome<input class="form-control" name="nome" required></label>
+  <label class="form-group">Email<input class="form-control" type="email" name="email" required></label>
+  <label class="form-group">Messaggio<textarea class="form-control" name="messaggio" rows="6" required></textarea></label>
+  <button class="btn btn-primary" type="submit">Invia</button>
+</form>

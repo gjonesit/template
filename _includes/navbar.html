@@ -1,0 +1,36 @@
+<header class="navbar" id="top">
+  <div class="navbar-bar">
+    <button class="navbar-toggle" type="button" data-toggle="offcanvas" data-target="menu" aria-label="Apri il menu">
+      <span class="burger"><i></i><i></i></span><span class="navbar-label">Menu</span>
+    </button>
+    <a class="navbar-brand" href="{{ '/' | relative_url }}">{{ site.data.site.brand }}</a>
+    <button class="navbar-search" type="button" data-toggle="offcanvas" data-target="search" aria-label="Apri la ricerca">
+      <span class="navbar-label">Cerca</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><circle cx="10" cy="10" r="7"/><path d="m21 21-6-6"/></svg>
+    </button>
+  </div>
+  <nav class="nav" aria-label="Principale">
+    {% for item in site.data.navigation %}
+      {% assign active = false %}
+      {% if item.url == '/' and page.url == '/' %}{% assign active = true %}{% elsif item.url != '/' and page.url contains item.url %}{% assign active = true %}{% endif %}
+      <a class="nav-link{% if active %} active{% endif %}" href="{{ item.url | relative_url }}"{% if active %} aria-current="page"{% endif %}>{{ item.title }}</a>
+    {% endfor %}
+  </nav>
+</header>
+
+<div class="offcanvas offcanvas-menu" id="menu" aria-hidden="true">
+  <button class="offcanvas-close" type="button" data-dismiss="offcanvas" aria-label="Chiudi">✕</button>
+  <nav class="offcanvas-nav">
+    {% for item in site.data.navigation %}
+      <a href="{{ item.url | relative_url }}" style="--i:{{ forloop.index0 }}">{{ item.title }}</a>
+    {% endfor %}
+  </nav>
+</div>
+
+<div class="offcanvas offcanvas-search" id="search" aria-hidden="true">
+  <button class="offcanvas-close" type="button" data-dismiss="offcanvas" aria-label="Chiudi">✕</button>
+  <div class="search">
+    <input class="search-input" type="search" placeholder="Cerca articoli e progetti…" autocomplete="off" data-search-input>
+    <ul class="search-results" data-search-results></ul>
+  </div>
+</div>

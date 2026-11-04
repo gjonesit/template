@@ -1,0 +1,22 @@
+---
+layout: page
+permalink: /blog/
+title: Blog
+lead: Articoli, appunti e idee.
+---
+<div class="filters" data-filter-group>
+  <button class="badge badge-active" data-filter="all">Tutti</button>
+  <button class="badge" data-filter="personale">Personale</button>
+  <button class="badge" data-filter="recensioni">Recensioni</button>
+  <button class="badge" data-filter="approfondimenti">Approfondimenti</button>
+</div>
+<ul class="list" data-filter-items>
+  {% for p in site.posts %}
+    <li class="anim-reveal" data-category="{{ p.category | default: 'Personale' | downcase }}"><a class="list-item" href="{{ p.url | relative_url }}">
+      <time>{{ p.date | date: "%d/%m/%Y" }}</time>
+      <span class="list-title">{{ p.title }} <em>· {{ p.category | default: 'Personale' }}</em></span>
+      <span class="list-arrow">→</span>
+    </a></li>
+  {% endfor %}
+</ul>
+<p class="empty-state" hidden>Nessun articolo in questa sezione, per ora.</p>

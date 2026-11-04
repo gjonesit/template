@@ -1,0 +1,18 @@
+{% assign f = site.data.site.footer %}
+<div class="divider divider-checker" aria-hidden="true"></div>
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="navbar-brand text-light" href="{{ '/' | relative_url }}">{{ site.data.site.brand }}</a>
+      <p class="text-small">{{ f.tagline }}</p>
+    </div>
+    {% for col in f.columns %}
+    <div>
+      <h4 class="footer-title">{{ col.title }}</h4>
+      {% for l in col.links %}<a class="footer-link" href="{{ l.url | relative_url }}">{{ l.title }}</a>{% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="container footer-copy">© {{ 'now' | date: '%Y' }} {{ site.data.site.brand }} · Tutti i diritti riservati</div>
+</footer>
+<button class="back-to-top" type="button" aria-label="Torna su" data-back-to-top>↑</button>

@@ -1,0 +1,24 @@
+title: Nome Sito
+description: Una breve descrizione del sito.
+lang: it
+url: ""
+baseurl: ""
+timezone: Europe/Rome
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+
+# Endpoint del form contatti (es. Formspree, Netlify Forms, Getform)
+form_action: "https://example.com/form"
+
+collections:
+  projects:
+    output: true
+    permalink: /progetti/:title/
+
+defaults:
+  - scope: { path: "", type: "posts" }
+    values: { layout: post }
+  - scope: { path: "", type: "projects" }
+    values: { layout: project }
+
+exclude: [Gemfile, Gemfile.lock, README.md, node_modules, vendor]

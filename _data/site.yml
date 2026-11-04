@@ -1,0 +1,55 @@
+brand: Nome Sito
+
+hero:
+  eyebrow: ciao, sono
+  title: Il Tuo Nome
+  subtitle: Una frase breve che dice cosa fai.
+  primary: { label: Scrivimi, url: /contatti/ }
+  secondary: { label: Scopri i progetti, url: /progetti/ }
+  photo: ""                # es. /assets/img/foto.jpg → mostra la polaroid
+  photo_caption: "io, in azione"
+  notes:
+    - "prima nota ✎"
+    - "seconda nota!"
+
+intro: "Un paragrafo di presentazione: chi sei, cosa fai e perché vale la pena restare qui."
+
+tiles:
+  - { title: Prima area,   color: pink,  url: /progetti/ }
+  - { title: Seconda area, color: green, url: /progetti/ }
+  - { title: Terza area,   color: blue,  url: /blog/ }
+
+feature:
+  title: Titolo in evidenza
+  text: "Un testo breve per presentare il progetto, il prodotto o il servizio più importante."
+  label: Evidenza
+  url: /progetti/
+  stats:
+    - { value: "100", label: elementi }
+    - { value: "7",   label: categorie }
+    - { value: "24",  label: ore di lavoro }
+
+carousel:
+  title: In evidenza
+  items:
+    - { icon: "🎲", title: Primo,   link: Scopri,  url: /progetti/, color: wine,   dark: false }
+    - { icon: "🎨", title: Secondo, link: Sfoglia, url: /progetti/, color: green,  dark: false }
+    - { icon: "🎬", title: Terzo,   link: Leggi,   url: /blog/,     color: blue,   dark: true }
+    - { icon: "📣", title: Quarto,  link: Segui,   url: /blog/,     color: yellow, dark: true }
+
+quote: "Una frase che ti rappresenta, che si illumina parola per parola mentre scorri."
+
+marquee: [Parola uno, Parola due, Parola tre, Parola quattro, Parola cinque]
+
+footer:
+  tagline: "Una riga di chiusura."
+  columns:
+    - title: Pagine
+      links:
+        - { title: Blog, url: /blog/ }
+        - { title: Progetti, url: /progetti/ }
+        - { title: Contatti, url: /contatti/ }
+    - title: Legale
+      links:
+        - { title: Privacy policy, url: /privacy/ }
+        - { title: Cookie policy, url: /cookie/ }

@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<article>
+  <header class="page-header">
+    <div class="container container-narrow">
+      <p class="eyebrow"><span class="badge badge-active">{{ page.area }}</span></p>
+      <h1 class="heading-xl anim-reveal">{{ page.title }}</h1>
+      <p class="lead anim-reveal">{{ page.description }}</p>
+    </div>
+  </header>
+  <div class="container container-narrow">
+    {% if page.image %}<img class="img-cover anim-reveal" src="{{ page.image | relative_url }}" alt="{{ page.title }}">{% endif %}
+    <div class="prose anim-reveal">{{ content }}</div>
+    {% if page.link and page.link != "" %}<a class="btn btn-secondary" href="{{ page.link }}" target="_blank" rel="noopener">Vai al progetto</a>{% endif %}
+    <a class="btn btn-primary" href="{{ '/progetti/' | relative_url }}">← Progetti</a>
+  </div>
+</article>
